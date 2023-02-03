@@ -1,4 +1,4 @@
-export function TaskItem({task, onDeleteItemClick, onDoubleClick}) {
+export const TaskItem = ({task, onDeleteItemClick, onDoubleClick}) => {
 
     let cssClasses = 'task-item';
     if (task.important) {
@@ -12,4 +12,4 @@ export function TaskItem({task, onDeleteItemClick, onDoubleClick}) {
             <p className={'tsk-due-time'}>{task.dueTime}</p>
         </div>
     );
-}
+};

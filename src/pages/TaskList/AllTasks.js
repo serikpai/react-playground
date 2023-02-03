@@ -1,4 +1,4 @@
-import {TaskItem} from './TaskItem';
+import {TaskItem} from '../../components/TaskItem/TaskItem';
 
 export const AllTasks = ({tasks, onDeleteItemClick, onDoubleClick}) => {
 
