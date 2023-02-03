@@ -1,8 +1,12 @@
 import {useState} from 'react';
 
-export const UpsertTaskForm = ({onSaveButtonClicked}) => {
+export const UpsertTaskForm = ({isVisible, onSaveButtonClicked}) => {
     const [name, setName] = useState('');
     const [dueTime, setDueTime] = useState('');
+
+    if (!isVisible) {
+        return '';
+    }
 
     const save = (e) => {
         e.preventDefault();
@@ -10,9 +14,20 @@ export const UpsertTaskForm = ({onSaveButtonClicked}) => {
         if (name) {
 
             const id = new Date().getMilliseconds();
+            let time = dueTime;
+
+            if (!dueTime) {
+
+                const now = new Date();
+                now.setDate(now.getDate() + 2);
+                time = now.toDateString();
+            }
 
             onSaveButtonClicked({
-                id, name, dueTime, important: false
+                id,
+                name,
+                dueTime: time,
+                important: false
             });
 
             setName('');
@@ -30,8 +45,8 @@ export const UpsertTaskForm = ({onSaveButtonClicked}) => {
     return (
         <form className={'form-tasks'} onSubmit={save}>
 
-            <input type="text" value={name} placeholder={'Name'} onChange={changeName}/>
-            <input type="text" value={dueTime} placeholder={'Due date'} onChange={changeDueTime}/>
+            <input type="text" value={name} placeholder={'name'} onChange={changeName}/>
+            <input type="text" value={dueTime} placeholder={'due time'} onChange={changeDueTime}/>
             <input type="submit" value="Save"/>
 
         </form>

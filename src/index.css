@@ -31,7 +31,7 @@ header {
 }
 
 header > h1 {
-    margin:0;
+    margin: 0;
 }
 
 .btn-add {
@@ -42,6 +42,7 @@ header > h1 {
     color: #f60;
     padding: .5rem;
 }
+
 .btn-add:hover {
     background: #f60;
     color: white;
@@ -56,6 +57,7 @@ header > h1 {
     border: 0 solid #f60;
     border-bottom-width: 1px;
 }
+
 .form-tasks input:focus {
     outline: none;
 }
@@ -86,11 +88,18 @@ header > h1 {
 }
 
 .task-item {
-    border-left: 5px solid green;
-    background: #eee;
+    border-radius: .25rem;
+    border-left: 5px solid #f7f7f7;
+    background: #f7f7f7;
     padding: .5rem;
     margin: .25rem;
     min-height: 2rem;
+
+    display: grid;
+    grid-template-columns: 1fr 24px;
+    grid-template-areas:
+        'name i'
+        'due-time due-time';
 }
 
 .task-item.important {
@@ -101,7 +110,32 @@ header > h1 {
     margin: 0;
 }
 
+.task-item .tsk-name {
+    grid-area: name;
+}
+
+.task-item > i {
+    grid-area: i;
+    cursor: pointer;
+
+    font-style: normal;
+    font-family: monospace;
+    height: 24px;
+    width: 24px;
+    font-size: 1.25rem;
+
+    border: 1px solid #f60;
+    color: white;
+    background: #ff6600;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
 .task-item .tsk-due-time {
+    grid-area: due-time;
     font-size: .875rem;
     color: #999;
 }

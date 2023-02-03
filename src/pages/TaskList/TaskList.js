@@ -15,32 +15,42 @@ export const TaskList = () => {
         dueTime: 'friday',
         important: true
     }]);
+    const [isFormVisible, setFormVisible] = useState(false);
+
 
     const addNewTask = (task) => {
-
-        console.log(task);
-
         setTasks([task, ...tasks]);
+    };
+
+    const showUpsertForm = () => {
+        setFormVisible(!isFormVisible);
+    };
+
+    const deleteItem = (task) => {
+        console.log('TaskList.js', task);
+
+        setTasks(tasks
+            .filter(x => x.id !== task.id));
     };
 
     return (
         <>
             <header>
                 <h1>Job Queue</h1>
-                <AddNewTaskButton onClick={addNewTask}></AddNewTaskButton>
+                <AddNewTaskButton onClick={showUpsertForm}></AddNewTaskButton>
             </header>
-            <UpsertTaskForm onSaveButtonClicked={addNewTask}></UpsertTaskForm>
-            <AllTasks tasks={tasks}></AllTasks>
+            <UpsertTaskForm isVisible={isFormVisible} onSaveButtonClicked={addNewTask}></UpsertTaskForm>
+            <AllTasks tasks={tasks} onDeleteItemClick={deleteItem}></AllTasks>
         </>
     );
 };
 
-export const AllTasks = ({tasks}) => {
+export const AllTasks = ({tasks, onDeleteItemClick}) => {
     return (
         <div className={'task-list'}>
             {tasks.map(t => {
-                return <TaskItem key={t.id} task={t}></TaskItem>;
+                return <TaskItem key={t.id} task={t} onDeleteItemClick={onDeleteItemClick}></TaskItem>;
             })}
         </div>
-    )
-}
+    );
+};
