@@ -1,6 +1,7 @@
-import {TaskItem} from './TaskItem';
 import {useState} from 'react';
+import {TaskItem} from './TaskItem';
 import {AddNewTaskButton} from './AddNewTaskButton';
+import {UpsertTaskForm} from './UpsertTaskForm';
 
 export const TaskList = () => {
     const [tasks, setTasks] = useState([{
@@ -15,13 +16,11 @@ export const TaskList = () => {
         important: true
     }]);
 
-    const addNewTask = () => {
-        const id = new Date().getMilliseconds();
+    const addNewTask = (task) => {
 
-        setTasks([{
-            id,
-            name: 'third'
-        }, ...tasks]);
+        console.log(task);
+
+        setTasks([task, ...tasks]);
     };
 
     return (
@@ -30,10 +29,18 @@ export const TaskList = () => {
                 <h1>Job Queue</h1>
                 <AddNewTaskButton onClick={addNewTask}></AddNewTaskButton>
             </header>
-            {tasks.map(t => {
-                return <TaskItem key={t.id} task={t}></TaskItem>;
-            })}
+            <UpsertTaskForm onSaveButtonClicked={addNewTask}></UpsertTaskForm>
+            <AllTasks tasks={tasks}></AllTasks>
         </>
     );
 };
 
+export const AllTasks = ({tasks}) => {
+    return (
+        <div className={'task-list'}>
+            {tasks.map(t => {
+                return <TaskItem key={t.id} task={t}></TaskItem>;
+            })}
+        </div>
+    )
+}
