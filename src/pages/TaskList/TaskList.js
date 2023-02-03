@@ -1,7 +1,7 @@
 import {useState} from 'react';
-import {TaskItem} from './TaskItem';
-import {AddNewTaskButton} from './AddNewTaskButton';
 import {UpsertTaskForm} from './UpsertTaskForm';
+import {AllTasks} from './AllTasks';
+import {QueueTitle} from './QueueTitle';
 
 export const TaskList = () => {
     const [tasks, setTasks] = useState([{
@@ -17,40 +17,33 @@ export const TaskList = () => {
     }]);
     const [isFormVisible, setFormVisible] = useState(false);
 
-
     const addNewTask = (task) => {
         setTasks([task, ...tasks]);
+        setFormVisible(false);
     };
 
     const showUpsertForm = () => {
         setFormVisible(!isFormVisible);
     };
 
-    const deleteItem = (task) => {
-        console.log('TaskList.js', task);
-
+    const deleteItem = (id) => {
         setTasks(tasks
-            .filter(x => x.id !== task.id));
+            .filter(x => x.id !== id));
+    };
+
+    const changePriority = (id) => {
+        const newTasks = tasks
+            .map(t => t.id === id ? {...t, important: !t.important} : t);
+
+        setTasks(newTasks);
     };
 
     return (
         <>
-            <header>
-                <h1>Job Queue</h1>
-                <AddNewTaskButton onClick={showUpsertForm}></AddNewTaskButton>
-            </header>
+            <QueueTitle onShowUpsertForm={showUpsertForm}></QueueTitle>
             <UpsertTaskForm isVisible={isFormVisible} onSaveButtonClicked={addNewTask}></UpsertTaskForm>
-            <AllTasks tasks={tasks} onDeleteItemClick={deleteItem}></AllTasks>
+            <AllTasks tasks={tasks} onDeleteItemClick={deleteItem} onDoubleClick={changePriority}></AllTasks>
         </>
     );
 };
 
-export const AllTasks = ({tasks, onDeleteItemClick}) => {
-    return (
-        <div className={'task-list'}>
-            {tasks.map(t => {
-                return <TaskItem key={t.id} task={t} onDeleteItemClick={onDeleteItemClick}></TaskItem>;
-            })}
-        </div>
-    );
-};

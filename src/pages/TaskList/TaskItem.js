@@ -5,14 +5,10 @@ export function TaskItem({task, onDeleteItemClick, onDoubleClick}) {
         cssClasses += ' important';
     }
 
-    const deleteItem = () => {
-        onDeleteItemClick(task);
-    };
-
     return (
-        <div className={cssClasses}>
+        <div className={cssClasses} onDoubleClick={() => onDoubleClick(task.id)}>
             <p className={'tsk-name'}>{task.name}</p>
-            <i onClick={deleteItem}>x</i>
+            <i onClick={() => onDeleteItemClick(task.id)}>x</i>
             <p className={'tsk-due-time'}>{task.dueTime}</p>
         </div>
     );
