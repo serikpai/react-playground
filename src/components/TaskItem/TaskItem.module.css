@@ -1,0 +1,53 @@
+
+.taskItem {
+    border-radius: .25rem;
+    border-left: 5px solid #f7f7f7;
+    background: #f7f7f7;
+    padding: .5rem;
+    margin: .25rem;
+    min-height: 2rem;
+
+    display: grid;
+    grid-template-columns: 1fr 24px;
+    grid-template-areas:
+        'name i'
+        'due-time due-time';
+}
+
+.taskItem.important {
+    border-color: darkred;
+}
+
+.taskItem > * {
+    margin: 0;
+}
+
+.taskItem .taskName {
+    grid-area: name;
+}
+
+.taskItem > i {
+    grid-area: i;
+    cursor: pointer;
+
+    font-style: normal;
+    font-family: monospace;
+    height: 24px;
+    width: 24px;
+    font-size: 1.25rem;
+
+    border: 1px solid #f60;
+    color: white;
+    background: #ff6600;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.taskItem .taskDueTime {
+    grid-area: due-time;
+    font-size: .875rem;
+    color: #999;
+}

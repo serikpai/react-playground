@@ -1,15 +1,19 @@
+import classNames from 'classnames';
+
+import css from './TaskItem.module.css';
+
 export const TaskItem = ({task, onDeleteItemClick, onDoubleClick}) => {
 
-    let cssClasses = 'task-item';
+    let cssClasses = css.taskItem;
     if (task.important) {
-        cssClasses += ' important';
+        cssClasses = classNames(css.taskItem, css.important);
     }
 
     return (
         <div className={cssClasses} onDoubleClick={() => onDoubleClick(task.id)}>
-            <p className={'tsk-name'}>{task.name}</p>
+            <p className={css.taskName}>{task.name}</p>
             <i onClick={() => onDeleteItemClick(task.id)}>x</i>
-            <p className={'tsk-due-time'}>{task.dueTime}</p>
+            <p className={css.taskDueTime}>{task.dueTime}</p>
         </div>
     );
 };

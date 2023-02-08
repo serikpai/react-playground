@@ -9,7 +9,7 @@ test("empty item must not crash", () => {
 
     render(<TaskItem task={t}></TaskItem>)
 
-    const e = screen.getByRole(/foo/i);
+    const e = screen.getByText(/foo/i);
 
     expect(e).toBeInTheDocument();
 
