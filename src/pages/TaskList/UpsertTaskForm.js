@@ -1,6 +1,11 @@
 import {useState} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {addNewTask, toggleUpsertForm} from '../../reducers/task';
 
-export const UpsertTaskForm = ({isVisible, onSaveButtonClicked}) => {
+export const UpsertTaskForm = () => {
+    const dispatch = useDispatch();
+    const isVisible = useSelector(x => x.task.isOpen);
+
     const [name, setName] = useState('');
     const [dueTime, setDueTime] = useState('');
 
@@ -23,15 +28,17 @@ export const UpsertTaskForm = ({isVisible, onSaveButtonClicked}) => {
                 time = now.toDateString();
             }
 
-            onSaveButtonClicked({
+            dispatch(addNewTask({
                 id,
                 name,
                 dueTime: time,
                 important: false
-            });
+            }));
 
             setName('');
             setDueTime('');
+
+            dispatch(toggleUpsertForm());
         }
     };
 

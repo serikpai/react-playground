@@ -1,6 +1,8 @@
 import {TaskItem} from '../../components/TaskItem/TaskItem';
+import {useSelector} from 'react-redux';
 
-export const AllTasks = ({tasks, onDeleteItemClick, onDoubleClick}) => {
+export const AllTasks = () => {
+    const tasks = useSelector(x => x.task.value);
 
     if (tasks.length === 0) {
         return (
@@ -12,8 +14,7 @@ export const AllTasks = ({tasks, onDeleteItemClick, onDoubleClick}) => {
         return (
             <div className={'task-list'}>
                 {tasks.map(t => {
-                    return <TaskItem key={t.id} task={t} onDeleteItemClick={onDeleteItemClick}
-                                     onDoubleClick={onDoubleClick}></TaskItem>;
+                    return <TaskItem key={t.id} task={t} />;
                 })}
             </div>
         );
