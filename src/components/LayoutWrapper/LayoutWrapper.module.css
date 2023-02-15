@@ -1,0 +1,43 @@
+.pageHeader {
+    max-width: 40rem;
+    margin: 1rem auto 0;
+}
+
+.logo {
+    background: #ff8033;
+    color: white;
+    font-size: 1.25rem;
+    font-weight: bold;
+
+    width: 3.25rem;
+    height: 3rem;
+    border-radius: 50%;
+    padding-bottom: .25rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mainNav ul {
+    min-width: 20rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.mainNav a {
+    color: #ff6600;
+    text-decoration: none;
+}
+a[aria-current='page'] {
+    font-style: italic;
+}
+
+.pageFooter {
+    display: flex;
+    justify-content: center;
+}

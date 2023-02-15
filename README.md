@@ -2,7 +2,19 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Create new app
+
+Create new folder (e.g. fancy-app) and run the following command: 
+
+### `npx create-react-app .`
+
+## Install dependencies
+
+After cloning the repository or deleting `node_modules` run the following command to get the latest dependencies  
+
+### `npm install`
+
+This step is not necessary, if you've created the app by using the previous command 
 
 In the project directory, you can run:
 
@@ -13,6 +25,19 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
+
+## Installing and use Redux
+
+### `npm i redux react-redux @reduxjs/toolkit`
+
+* Add store within `src\index.js`.
+* Create new reducer like `src\reducers\task.js`
+* use the `useSelector()` hook to get values of the store
+* use the `useDispatch()` hook to call function within the reducer
+
+## Routing
+
+### `npm i react-routing-dom`
 
 ### `npm test`
 
@@ -38,6 +63,9 @@ If you aren't satisfied with the build tool and configuration choices, you can `
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+
+
 
 ## Learn More
 

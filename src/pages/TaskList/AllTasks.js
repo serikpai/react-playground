@@ -13,9 +13,9 @@ export const AllTasks = () => {
     } else {
         return (
             <div className={'task-list'}>
-                {tasks.map(t => {
-                    return <TaskItem key={t.id} task={t} />;
-                })}
+                {tasks.map(t =>
+                    <TaskItem key={t.id} task={t} />
+                )}
             </div>
         );
     }
