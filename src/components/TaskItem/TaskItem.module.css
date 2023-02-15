@@ -1,0 +1,52 @@
+.card {
+    border-radius: .25rem;
+    border-left: 5px solid #f7f7f7;
+    background: #f7f7f7;
+    padding: .5rem;
+    margin: .25rem;
+    min-height: 2rem;
+
+    display: grid;
+    grid-template-columns: 1fr 24px;
+    grid-template-areas:
+        'name icon'
+        'due-time due-time';
+}
+
+.card.important {
+    border-color: darkred;
+}
+
+.card > * {
+    margin: 0;
+}
+
+.name {
+    grid-area: name;
+}
+
+.icon {
+    grid-area: icon;
+    cursor: pointer;
+
+    font-style: normal;
+    font-family: monospace;
+    height: 24px;
+    width: 24px;
+    font-size: 1.25rem;
+
+    border: 1px solid #f60;
+    color: white;
+    background: #ff6600;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.dueTime {
+    grid-area: due-time;
+    font-size: .875rem;
+    color: #999;
+}

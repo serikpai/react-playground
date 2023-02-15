@@ -1,13 +1,88 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.container {
+    width: 600px;
+    margin: 0 auto
+}
+
+.container > * {
+    margin: .5rem;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header > h1 {
+    margin: 0;
+}
+
+.btn-add {
+    cursor: pointer;
+
+    border: 1px solid #f60;
+    background: #fff;
+    color: #f60;
+    padding: .5rem;
+}
+
+.btn-add:hover {
+    background: #f60;
+    color: white;
+}
+
+.form-tasks {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-tasks input[type='text'] {
+    border: 0 solid #f60;
+    border-bottom-width: 1px;
+}
+
+.form-tasks input:focus {
+    outline: none;
+}
+
+.form-tasks input[type='submit'] {
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+
+    border: 1px solid #f60;
+    background: #fff;
+    color: #f60;
+}
+
+.form-tasks input[type='submit']:hover {
+    background: #f60;
+    color: white;
+}
+
+.form-tasks > input {
+    padding: .5rem;
+    margin-bottom: .5rem;
+}
+
+.task-list, .form-tasks {
+    border: 1px solid #ccc;
 }
