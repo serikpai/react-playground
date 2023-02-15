@@ -40,11 +40,14 @@ export const taskSlice = createSlice({
             state.value = state.value
                 .map(task => task.id === id ? {...task, important: !task.important} : task);
         },
-        toggleUpsertForm:(state)=>{
+        toggleUpsertForm: (state) => {
             state.isOpen = !state.isOpen;
-        }
+        },
+        // getTask: (state, action) => {
+        //     return "tasks"
+        // }
     }
 });
 
-export const {addNewTask, deleteTask, togglePriority, toggleUpsertForm} = taskSlice.actions;
+export const {addNewTask, deleteTask, togglePriority, toggleUpsertForm, getTask} = taskSlice.actions;
 export default taskSlice.reducer;

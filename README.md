@@ -35,6 +35,9 @@ You may also see any lint errors in the console.
 * use the `useSelector()` hook to get values of the store
 * use the `useDispatch()` hook to call function within the reducer
 
+## Routing
+
+### `npm i react-routing-dom`
 
 ### `npm test`
 
