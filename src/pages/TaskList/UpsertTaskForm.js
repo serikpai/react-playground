@@ -1,13 +1,16 @@
 import {useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {addNewTask, toggleUpsertForm} from '../../reducers/task';
+import {addNewTask, toggleUpsertForm} from '../../tasks/taskSlice';
+import {useCreateTaskMutation} from '../../api/apiSlice';
 
 export const UpsertTaskForm = () => {
     const dispatch = useDispatch();
-    const isVisible = useSelector(x => x.task.isOpen);
+    const isVisible = useSelector(x => x.task?.isOpen ?? false);
 
     const [name, setName] = useState('');
     const [dueTime, setDueTime] = useState('');
+
+    const [createTask] = useCreateTaskMutation();
 
     if (!isVisible) {
         return '';
@@ -28,12 +31,15 @@ export const UpsertTaskForm = () => {
                 time = now.toDateString();
             }
 
-            dispatch(addNewTask({
+            const newTask = {
                 id,
                 name,
                 dueTime: time,
                 important: false
-            }));
+            };
+
+            dispatch(addNewTask());
+            createTask(newTask)
 
             setName('');
             setDueTime('');

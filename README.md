@@ -31,7 +31,7 @@ You may also see any lint errors in the console.
 ### `npm i redux react-redux @reduxjs/toolkit`
 
 * Add store within `src\index.js`.
-* Create new reducer like `src\reducers\task.js`
+* Create new reducer like `src\reducers\tasksSlice.js`
 * use the `useSelector()` hook to get values of the store
 * use the `useDispatch()` hook to call function within the reducer
 

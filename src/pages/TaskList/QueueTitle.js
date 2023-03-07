@@ -1,6 +1,6 @@
 import {AddNewTaskButton} from './AddNewTaskButton';
 import {useDispatch} from 'react-redux';
-import {toggleUpsertForm} from '../../reducers/task';
+import {toggleUpsertForm} from '../../tasks/taskSlice';
 
 export const QueueTitle = () => {
     const dispatch = useDispatch();
