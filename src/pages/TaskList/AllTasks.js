@@ -4,28 +4,21 @@ import {selectAllTodos, selectIsLoading} from '../../features/tasks';
 
 export const AllTasks = () => {
   const tasks = useSelector(selectAllTodos);
-  const isLoading = useSelector(selectIsLoading)
+  const isLoading = useSelector(selectIsLoading);
+
+  let userMessage = '';
 
   if (isLoading) {
-    return (
-      <div className={'task-list'}>
-        Loading...
-      </div>
-    )
+    userMessage = 'Loading ...';
+  } else if (tasks?.length === 0) {
+    userMessage = 'everything is done!';
   }
-  else if (tasks?.length === 0) {
-    return (
-      <div className={'task-list'}>
-        everything is done!
-      </div>
-    );
-  } else {
-    return (
-      <div className={'task-list'}>
-        {tasks.map(t =>
-          <TaskItem key={t.id} task={t}/>
-        )}
-      </div>
-    );
-  }
+
+  return (
+    <div className={'task-list'}>
+      {userMessage ? userMessage : tasks.map(t =>
+        <TaskItem key={t.id} task={t}/>
+      )}
+    </div>
+  );
 };

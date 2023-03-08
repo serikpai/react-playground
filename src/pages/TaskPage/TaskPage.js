@@ -14,18 +14,15 @@ export function TaskPage() {
     dispatch(fetchTaskById(id));
   }, []);
 
+  let userMessage = '';
+
   if (isLoading) {
-    return (
-      <div>
-        Loading...
-      </div>
-    );
-  } else {
-    return (
-      <>
-        <h1>Task: {task.name}</h1>
-        <p>{task.dueTime}</p>
-      </>
-    );
+    userMessage = 'Loading...';
   }
+  return userMessage ? userMessage : (
+    <>
+      <h1>Task: {task.name}</h1>
+      <p>{task.dueTime}</p>
+    </>
+  );
 }
