@@ -1,19 +1,19 @@
 import {TaskItem} from '../../components/TaskItem/TaskItem';
-import {useDispatch, useSelector} from 'react-redux';
-import {getAllTasks, selectAllTodos} from '../../tasks/taskSlice';
-import {useEffect} from 'react';
+import {useSelector} from 'react-redux';
+import {selectAllTodos, selectIsLoading} from '../../features/tasks';
 
 export const AllTasks = () => {
-
-  const dispatch = useDispatch();
   const tasks = useSelector(selectAllTodos);
+  const isLoading = useSelector(selectIsLoading)
 
-  useEffect(() => {
-    console.log('call once??');
-    dispatch(getAllTasks());
-  }, []);
-
-  if (tasks?.length === 0) {
+  if (isLoading) {
+    return (
+      <div className={'task-list'}>
+        Loading...
+      </div>
+    )
+  }
+  else if (tasks?.length === 0) {
     return (
       <div className={'task-list'}>
         everything is done!

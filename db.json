@@ -17,30 +17,6 @@
       "name": "impl. redux",
       "dueTime": "tuesday",
       "important": true
-    },
-    {
-      "id": 214,
-      "name": "asd",
-      "dueTime": "asd",
-      "important": false
-    },
-    {
-      "id": 238,
-      "name": "asd",
-      "dueTime": "etgrafdsc",
-      "important": false
-    },
-    {
-      "id": 707,
-      "name": "asdakljshd",
-      "dueTime": "etgrafdasdasdsc",
-      "important": false
-    },
-    {
-      "id": 12,
-      "name": "tgerafv",
-      "dueTime": "erafvd",
-      "important": false
     }
   ]
 }

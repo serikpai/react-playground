@@ -2,7 +2,7 @@ import {Link} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
 import classNames from 'classnames';
 
-import {deleteTask, togglePriority} from '../../tasks/taskSlice';
+import {deleteTask, togglePriority} from '../../features/tasks';
 
 import css from './TaskItem.module.css';
 
