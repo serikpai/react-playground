@@ -1,22 +1,24 @@
 import {TaskItem} from '../../components/TaskItem/TaskItem';
 import {useSelector} from 'react-redux';
+import {selectAllTodos, selectIsLoading} from '../../features/tasks';
 
 export const AllTasks = () => {
-    const tasks = useSelector(x => x.task.value);
+  const tasks = useSelector(selectAllTodos);
+  const isLoading = useSelector(selectIsLoading);
 
-    if (tasks.length === 0) {
-        return (
-            <div className={'task-list'}>
-                everything is done!
-            </div>
-        );
-    } else {
-        return (
-            <div className={'task-list'}>
-                {tasks.map(t =>
-                    <TaskItem key={t.id} task={t} />
-                )}
-            </div>
-        );
-    }
+  let userMessage = '';
+
+  if (isLoading) {
+    userMessage = 'Loading ...';
+  } else if (tasks?.length === 0) {
+    userMessage = 'everything is done!';
+  }
+
+  return (
+    <div className={'task-list'}>
+      {userMessage ? userMessage : tasks.map(t =>
+        <TaskItem key={t.id} task={t}/>
+      )}
+    </div>
+  );
 };

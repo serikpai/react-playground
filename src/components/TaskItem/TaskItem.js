@@ -2,10 +2,9 @@ import {Link} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
 import classNames from 'classnames';
 
-import {deleteTask, togglePriority} from '../../reducers/task';
+import {deleteTask, togglePriority} from '../../features/tasks';
 
 import css from './TaskItem.module.css';
-
 
 export const TaskItem = ({task}) => {
     const dispatch = useDispatch();
@@ -16,11 +15,11 @@ export const TaskItem = ({task}) => {
     }
 
     const onDeleteItemClick = () => {
-        dispatch(deleteTask(task.id));
+        dispatch(deleteTask(task));
     };
 
     const onDoubleClick = () => {
-        dispatch(togglePriority(task.id));
+        dispatch(togglePriority(task));
     };
 
     return (

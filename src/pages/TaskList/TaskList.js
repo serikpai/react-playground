@@ -1,21 +1,23 @@
-import {useState} from 'react';
 import {UpsertTaskForm} from './UpsertTaskForm';
 import {AllTasks} from './AllTasks';
 import {QueueTitle} from './QueueTitle';
+import {fetchAllTasks} from '../../features/tasks';
+import {useDispatch} from 'react-redux';
+import {useEffect} from 'react';
 
 export const TaskList = () => {
-    const [isFormVisible, setFormVisible] = useState(false);
+  const dispatch = useDispatch();
 
-    const showUpsertForm = () => {
-        setFormVisible(!isFormVisible);
-    };
+  useEffect(() => {
+    dispatch(fetchAllTasks());
+  }, []);
 
-    return (
-        <>
-            <QueueTitle onShowUpsertForm={showUpsertForm}/>
-            <UpsertTaskForm isVisible={isFormVisible}/>
-            <AllTasks/>
-        </>
-    );
+  return (
+    <>
+      <QueueTitle/>
+      <UpsertTaskForm/>
+      <AllTasks/>
+    </>
+  );
 };
 

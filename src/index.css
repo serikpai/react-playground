@@ -12,26 +12,15 @@ code {
     monospace;
 }
 
-.container {
-    max-width: 40rem;
-    margin: 0 auto
+* {
+    box-sizing: border-box;
 }
+#root {
+    min-height: 100vh;
+    min-height: 100dvh;
 
-.container > * {
-    margin: .5rem;
-    padding: 1rem;
-    border-radius: 5px;
-}
-
-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
-
-header > h1 {
-    margin: 0;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
 }
 
 .btn-add {

@@ -1,0 +1,22 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "name": "first one",
+      "dueTime": "monday",
+      "important": false
+    },
+    {
+      "id": 2,
+      "name": "second one",
+      "dueTime": "friday",
+      "important": true
+    },
+    {
+      "id": 3,
+      "name": "impl. redux",
+      "dueTime": "tuesday",
+      "important": true
+    }
+  ]
+}
