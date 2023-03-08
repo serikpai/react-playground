@@ -1,6 +1,36 @@
 .pageHeader {
-    max-width: 40rem;
-    margin: 1rem auto 0;
+    background: #f7f7f7;
+    box-shadow: 0 0 20px 0 #ddd;
+}
+
+.pageHeader > div {
+    width: 40rem;
+    margin: 1rem auto;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pageContainer {
+    width: 40rem;
+    margin: 0 auto;
+}
+
+.pageContainer > * {
+    margin: .5rem;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+.pageFooter {
+    background: #f7f7f7;
+    box-shadow: 0 0 20px 0 #ddd;
+
+    padding: 1rem 0;
+    display: flex;
+    justify-content: center;
 }
 
 .logo {
@@ -37,7 +67,3 @@ a[aria-current='page'] {
     font-style: italic;
 }
 
-.pageFooter {
-    display: flex;
-    justify-content: center;
-}
